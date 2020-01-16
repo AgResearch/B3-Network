@@ -1,0 +1,21 @@
+library(tidyverse)
+library(readxl)
+library(stringr)
+library(stringdist)
+
+#set working directory to source file location
+
+dirN<-dirname(rstudioapi::getSourceEditorContext()$path)
+setwd(dirN)
+dirN
+dir()
+
+#combine curated data sets
+#Create focus subset based on Genus of Interest
+
+TaxonOfInterest<-"Lolium"
+SeedImports1<-read_xlsx("Input/Seeds_data_for_B3 _ ceb_v2.xlsx", sheet="Lolium")
+SeedImports2<-read_xlsx("Input/Seeds_data_for_B3 _ ceb_v2.xlsx", sheet="Trifolium")
+SeedImports3<-read_xlsx("Input/Seeds_data_for_B3 _ ceb_v2.xlsx", sheet="Festuca")
+GetCodes<-read_xlsx("Input/Seeds_data_for_B3 _ ceb_v2.xlsx", sheet="ImporterCode")
+
