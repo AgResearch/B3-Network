@@ -2,24 +2,14 @@
 
 GetCodes<-GetCodes %>% dplyr::select(ConsignLineID, ImporterCodeNew=ImporterCode)
 
- 
 
 #list of reculated species
 
 Regulated1<-read_xlsx("Input/Seeds_data_for_B3 _ ceb_v2.xlsx", sheet="LookUpRegulated")
-
- 
-
 RegulatedQ<-Regulated1 %>%
 
   filter(`Quarantine status`=="Q")
-
 RegulatedQ<-enframe(RegulatedQ$`scientific name`, name=NULL)
-
 RegulatedQ<-rename(RegulatedQ, ScientificName = value)
-
- 
-
- 
 
 SeedImports<-bind_rows(SeedImports1,SeedImports2, SeedImports3)
